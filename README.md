@@ -3,10 +3,10 @@ dotfiles
 
 My personal dotfiles for the following programs:
 
--bash
--vim
--screen
--side (script using screen + vim as an IDE)
+	-bash
+	-vim
+	-screen
+	-side (script using screen + vim as an IDE)
 
 Install
 -------
