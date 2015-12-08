@@ -12,20 +12,23 @@ files="bashrc vim vimrc screenrc-ide"    # list of files/folders to symlink in h
 
 ##########
 
-# create dotfiles_old in homedir
-echo "Creating $olddir for backup of any existing dotfiles in ~"
+# create backup dir for conflicting dotfiles
+echo "Creating $olddir for backup of any existing dotfiles in ~/"
 mkdir -p $olddir
-echo "...done"
 
-# change to the dotfiles directory
-echo "Changing to the $dir directory"
-cd $dir
-echo "...done"
+# create dotfiles directory for new dotfiles
+echo "Creating $dir for new dotfiles: $files"
+mkdir -p $dir
 
-# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
+# for each file
+#   move conflicting dotfile to $olddir
+#   copy file to $dir
+#   symlink file to ~/
 for file in $files; do
     echo "Moving any existing $file from ~ to $olddir"
-    mv ~/.$file ~/dotfiles_old/
+    mv ~/.$file $olddir
+    echo "Copying new $file to $dir"
+    cp -r ./$file $dir/$file
     echo "Creating symlink to $file in home directory."
     ln -s $dir/$file ~/.$file
 done
