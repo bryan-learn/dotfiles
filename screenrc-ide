@@ -4,8 +4,8 @@
 # Guy Who Tweaks This File and Adds Foul Language Comments:
 #  -- Miles Z. Sterrett <miles.sterrett@gmail.com>
 #
-# Original Author:         Aaron Schaefer <aaron@elasticdog.com>
-# Created:        Sat 05 Aug 2006 06:38:47 PM EDT
+# Original Author:  Aaron Schaefer <aaron@elasticdog.com>
+# Modified By:      Bryan Learn <learn.bryan@gmail.com>    
 #
 # Settings used to initialize screen sessions
 term screen-256color
@@ -35,7 +35,7 @@ term screen-256color
   hardstatus alwayslastline
   hardstatus string "%{= kb}[ %=%{w}%?%-Lw%?%{C}(%{W}%n*%f %t%?(%u)%?%{C})%{w}%?%+Lw%?%?%= %{b}][%{C} %Y.%m.%d %{W}%0c %{b}]"
 
-# Turn off the fucking visual bell
+# Turn off the visual bell
   vbell off
 
 # Setup IDE template
@@ -43,9 +43,13 @@ term screen-256color
   split
   resize 40
   focus down 
-  screen -t 'Run' 1 bash
-  screen -t 'Build - Version Control' 2 bash
+  screen -t 'Build' 1 bash
+  screen -t 'Run' 2 bash
+  screen -t 'Debug' 3 bash
   select 1
   focus up
+
+# Die
+  bind \ quit
 
 # End of File
